@@ -101,7 +101,8 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
+## 这里配置对应仓库，配置好分支，运行hexo d命令后会直接把编译好的静态文件推到对应分支
 deploy:
   type: git
-  repo: git@gitee.com:stormfeng/stormfeng.git
-  branch: master
+  repo: git@github.com:StormFeng/stormfeng.github.io.git
+  branch: github
