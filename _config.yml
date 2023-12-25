@@ -104,5 +104,5 @@ theme: next
 ## 这里配置对应仓库，配置好分支，运行hexo d命令后会直接把编译好的静态文件推到对应分支
 deploy:
   type: git
-  repo: git@github.com:StormFeng/stormfeng.github.io.git
+  repo: git@github.com:mr-weiqingfeng/mr-weiqingfeng.github.io.git
   branch: github
