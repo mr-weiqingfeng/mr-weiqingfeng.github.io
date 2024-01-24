@@ -2,7 +2,9 @@
 title: Spring MVC知识点杂谈
 date: 2023-12-22 16:30:58
 tags:
-  - java
+  - spring
+categories:
+  - Java
 ---
 
 1. 通过使用@PathVariable注解获取占位符参数

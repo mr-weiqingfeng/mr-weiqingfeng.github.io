@@ -2,7 +2,9 @@
 title: jdbc
 date: 2023-12-22 16:27:01
 tags:
-  - java
+  - jdbc
+categories:
+  - Java
 ---
 
 1.获取自增长的主键，再获取`PreparedStatement`时候带上参数就可以了

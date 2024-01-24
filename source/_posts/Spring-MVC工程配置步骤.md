@@ -2,7 +2,9 @@
 title: Spring MVC工程配置步骤
 date: 2023-12-22 16:29:55
 tags:
-  - java
+  - spring
+categories:
+   - Java
 ---
 
 1. 引入依赖

@@ -2,7 +2,9 @@
 title: mybatis
 date: 2023-12-22 16:27:31
 tags:
-  - java
+  - mybatis
+categories:
+  - Java
 ---
 
 ### mybatis-config.xml配置文件

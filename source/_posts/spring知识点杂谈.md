@@ -2,8 +2,9 @@
 title: spring知识点杂谈
 date: 2023-12-22 16:01:54
 tags:
-    - Java
-    - Spring
+   - spring
+categories:
+   - Java
 ---
 
 ### FactoryBean

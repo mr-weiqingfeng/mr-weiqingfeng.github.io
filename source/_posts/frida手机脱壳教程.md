@@ -2,6 +2,8 @@
 title: frida手机脱壳教程
 date: 2023-12-25 14:32:38
 tags:
+  - frida
+categories:
   - Android
 ---
 
