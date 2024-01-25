@@ -124,18 +124,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -164,6 +164,95 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/12/26/Python-%E4%BF%A1%E5%8F%B7%E9%87%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wei">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | wei">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/12/26/Python-%E4%BF%A1%E5%8F%B7%E9%87%8F/" class="post-title-link" itemprop="url">Python-信号量</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-12-26 09:44:07" itemprop="dateCreated datePublished" datetime="2018-12-26T09:44:07Z">2018-12-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-25 03:22:12" itemprop="dateModified" datetime="2023-12-25T03:22:12Z">2023-12-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="实际场景"><a href="#实际场景" class="headerlink" title="实际场景"></a>实际场景</h4><p>卫生间两个池，同一时间最多只能由有两个人使用，用代码实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">i</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;第%s个人上个大号~~~&#x27;</span> % i)</span><br><span class="line">    time.sleep(random.randint(<span class="number">1</span>, <span class="number">5</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;第%s个人上完大号啦~~~&#x27;</span> % i)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">        p = Process(target=func, args=(i, ))</span><br><span class="line">        p.start()</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># 第0个人上个大号~~~</span></span><br><span class="line"><span class="comment"># 第2个人上个大号~~~</span></span><br><span class="line"><span class="comment"># 第1个人上个大号~~~</span></span><br><span class="line"><span class="comment"># 第3个人上个大号~~~</span></span><br><span class="line"><span class="comment"># 第4个人上个大号~~~</span></span><br><span class="line"><span class="comment"># 第2个人上完大号啦~~~</span></span><br><span class="line"><span class="comment"># 第0个人上完大号啦~~~</span></span><br><span class="line"><span class="comment"># 第3个人上完大号啦~~~</span></span><br><span class="line"><span class="comment"># 第4个人上完大号啦~~~</span></span><br><span class="line"><span class="comment"># 第1个人上完大号啦~~~</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Process finished with exit code 0</span></span><br></pre></td></tr></table></figure>
+<p>从输出的结果可以看出，5个人同时进入厕所啦！但是实际只有两个池子，这显然是不对的。<br>如果我们用进程锁的方式可以避免这一现象，但是同一时间只能有一个人进入厕所，而厕所可以容纳两个人，另一个池子就被闲置着浪费掉了。<br>如果我们在厕所门上挂多把钥匙，同一时间可以由多个人进入呢？这里就引出信号量的概念。</p>
+<h4 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process, Semaphore</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">i, sem</span>):</span><br><span class="line">    sem.acquire()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;第%s个人上个大号~~~&#x27;</span> % i)</span><br><span class="line">    time.sleep(random.randint(<span class="number">1</span>, <span class="number">5</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;第%s个人上完大号啦~~~&#x27;</span> % i)</span><br><span class="line">    sem.release()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    sem = Semaphore(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">        p = Process(target=func, args=(i, sem))</span><br><span class="line">        p.start()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># 第0个人上个大号~~~</span></span><br><span class="line"><span class="comment"># 第1个人上个大号~~~</span></span><br><span class="line"><span class="comment"># 第0个人上完大号啦~~~</span></span><br><span class="line"><span class="comment"># 第2个人上个大号~~~</span></span><br><span class="line"><span class="comment"># 第1个人上完大号啦~~~</span></span><br><span class="line"><span class="comment"># 第3个人上个大号~~~</span></span><br><span class="line"><span class="comment"># 第2个人上完大号啦~~~</span></span><br><span class="line"><span class="comment"># 第4个人上个大号~~~</span></span><br><span class="line"><span class="comment"># 第4个人上完大号啦~~~</span></span><br><span class="line"><span class="comment"># 第3个人上完大号啦~~~</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Process finished with exit code 0</span></span><br></pre></td></tr></table></figure>
+<p><code>Semaphore</code>对象和<code>Lock</code>的使用方法类似，都是通过<code>acquire()</code>拿到钥匙，通过<code>release()</code>归还钥匙，区别在于<code>Semphore</code>可以有多把钥匙，同一时间可以由多个进程访问。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
