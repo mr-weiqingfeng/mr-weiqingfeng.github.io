@@ -124,7 +124,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -135,7 +135,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -164,6 +164,100 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/12/26/Python-%E4%BA%8B%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wei">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | wei">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/12/26/Python-%E4%BA%8B%E4%BB%B6/" class="post-title-link" itemprop="url">Python-事件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-12-26 10:00:57" itemprop="dateCreated datePublished" datetime="2018-12-26T10:00:57Z">2018-12-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-25 03:22:12" itemprop="dateModified" datetime="2023-12-25T03:22:12Z">2023-12-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="Python进程中事件的概念"><a href="#Python进程中事件的概念" class="headerlink" title="Python进程中事件的概念"></a>Python进程中事件的概念</h4><p>通过一个信号来控制多个进程同时执行或者阻塞。<br>一个信号可以使所有的进程都进入阻塞状态，也可以控制所有的进程解除阻塞。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Event</span><br><span class="line">e = Event()</span><br><span class="line"><span class="built_in">print</span>(e.is_set()) <span class="comment"># 查看一个事件的状态，事件被创建之后，默认返回值为False</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">111</span>)</span><br><span class="line">e.wait() <span class="comment"># 根据e.is_set()的值来决定是否阻塞</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">111</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># False</span></span><br><span class="line"><span class="comment"># 111</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>当<code>e.is_set()</code>返回值为<code>False</code>时，<code>e.wait()</code>方法使程序进入阻塞状态；当<code>e.is_set()</code>返回值为<code>True</code>时，<code>e.wait()</code>不再阻塞程序。<code>wait()</code>方法是依据事件的状态来决定自己是否阻塞。<br><code>e.set()</code>将事件的状态改成<code>True</code>，相对应的方法是<code>e.clear()</code>，将事件的状态改成<code>False</code>。</p>
+<h4 id="实际应用场景"><a href="#实际应用场景" class="headerlink" title="实际应用场景"></a>实际应用场景</h4><ol>
+<li><p>员工正在工作，3秒钟后收到老板通知要出差，立马放下手头的工作准备出发:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Event, Process</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">e</span>):</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;小王：正在工作~~~&#x27;</span>)</span><br><span class="line">        e.wait()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;小王：收到，马上出发！&#x27;</span>)</span><br><span class="line">        time.sleep(<span class="number">2</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;小王：老板，我回来了，我继续工作了！&#x27;</span>)</span><br><span class="line">        e.clear()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    e = Event()</span><br><span class="line">    Process(target=func, args=(e,)).start()</span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;老板：小王收拾行李准备出差！&#x27;</span>)</span><br><span class="line">    e.<span class="built_in">set</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># 小王：正在工作~~~</span></span><br><span class="line"><span class="comment"># 老板：小王收拾行李准备出差！</span></span><br><span class="line"><span class="comment"># 小王：收到，马上出发！</span></span><br><span class="line"><span class="comment"># 小王：老板，我回来了，我继续工作了！</span></span><br><span class="line"><span class="comment"># 小王：正在工作~~~</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>红绿灯模型:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Event, Process</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">light</span>(<span class="params">e</span>):</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">if</span> e.is_set():</span><br><span class="line">            e.clear()</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;红灯亮了~~~&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            e.<span class="built_in">set</span>()</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;绿灯亮了~~~&#x27;</span>)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">car</span>(<span class="params">e</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> e.is_set():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;咦，红灯亮了，等等再走吧！&#x27;</span>)</span><br><span class="line">        e.wait()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;绿灯亮了，走！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    e = Event()</span><br><span class="line">    Process(target=light, args=(e, )).start()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">        Process(target=car, args=(e,)).start()</span><br><span class="line">        </span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># 绿灯亮了~~~</span></span><br><span class="line"><span class="comment"># 红灯亮了~~~</span></span><br><span class="line"><span class="comment"># 咦，红灯亮了，等等再走吧！</span></span><br><span class="line"><span class="comment"># 绿灯亮了~~~</span></span><br><span class="line"><span class="comment"># 绿灯亮了，走！</span></span><br><span class="line"><span class="comment"># 绿灯亮了，走！</span></span><br><span class="line"><span class="comment"># 红灯亮了~~~</span></span><br><span class="line"><span class="comment"># 咦，红灯亮了，等等再走吧！</span></span><br><span class="line"><span class="comment"># 绿灯亮了~~~</span></span><br><span class="line"><span class="comment"># 绿灯亮了，走！</span></span><br><span class="line"><span class="comment"># 绿灯亮了，走！</span></span><br><span class="line"><span class="comment"># 红灯亮了~~~</span></span><br><span class="line"><span class="comment"># 咦，红灯亮了，等等再走吧！</span></span><br><span class="line"><span class="comment"># 绿灯亮了~~~</span></span><br><span class="line"><span class="comment"># 绿灯亮了，走！</span></span><br><span class="line"><span class="comment"># 绿灯亮了，走！</span></span><br><span class="line"><span class="comment"># 红灯亮了~~~</span></span><br><span class="line"><span class="comment"># 咦，红灯亮了，等等再走吧！</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

@@ -21,28 +21,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="子进程不能用户交互，跟Android中子进程不能进行UI操作有点类似1234567891011121314151617181920from multiprocessing import Processdef func():    print(input())if __name__ &#x3D;&#x3D; &amp;#x27;__main__&amp;#x27;:    Process(target&#x3D;func).start()# 输">
+    <meta name="description" content="群晖配置说明Alist配置说明   本地 远程 说明    阿里云盘 &#x2F; 映射阿里云盘根文件夹   HyperBackup &#x2F;HyperBackup 映射百度网盘HyperBackup文件夹   阿里云盘同步本地   本地 阿里云盘 说明    homes homes 双向(备份照片等个人资料)   music music 双向   宝宝一家 宝宝一家 仅下载远程更改(隐藏共享">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python-进程误区">
-<meta property="og:url" content="http://example.com/2018/12/26/Python-%E8%BF%9B%E7%A8%8B%E8%AF%AF%E5%8C%BA/index.html">
+<meta property="og:title" content="群晖备份说明">
+<meta property="og:url" content="http://example.com/2024/02/06/%E7%BE%A4%E6%99%96%E5%A4%87%E4%BB%BD%E8%AF%B4%E6%98%8E/index.html">
 <meta property="og:site_name" content="wei">
-<meta property="og:description" content="子进程不能用户交互，跟Android中子进程不能进行UI操作有点类似1234567891011121314151617181920from multiprocessing import Processdef func():    print(input())if __name__ &#x3D;&#x3D; &amp;#x27;__main__&amp;#x27;:    Process(target&#x3D;func).start()# 输">
+<meta property="og:description" content="群晖配置说明Alist配置说明   本地 远程 说明    阿里云盘 &#x2F; 映射阿里云盘根文件夹   HyperBackup &#x2F;HyperBackup 映射百度网盘HyperBackup文件夹   阿里云盘同步本地   本地 阿里云盘 说明    homes homes 双向(备份照片等个人资料)   music music 双向   宝宝一家 宝宝一家 仅下载远程更改(隐藏共享">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2018-12-25T17:57:02.000Z">
-<meta property="article:modified_time" content="2023-12-25T03:22:12.018Z">
+<meta property="article:published_time" content="2024-02-06T15:12:22.000Z">
+<meta property="article:modified_time" content="2024-02-06T08:14:11.815Z">
 <meta property="article:author" content="wei">
-<meta property="article:tag" content="进程">
+<meta property="article:tag" content="群晖">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2018/12/26/Python-%E8%BF%9B%E7%A8%8B%E8%AF%AF%E5%8C%BA/">
+<link rel="canonical" href="http://example.com/2024/02/06/%E7%BE%A4%E6%99%96%E5%A4%87%E4%BB%BD%E8%AF%B4%E6%98%8E/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2018/12/26/Python-%E8%BF%9B%E7%A8%8B%E8%AF%AF%E5%8C%BA/","path":"2018/12/26/Python-进程误区/","title":"Python-进程误区"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/02/06/%E7%BE%A4%E6%99%96%E5%A4%87%E4%BB%BD%E8%AF%B4%E6%98%8E/","path":"2024/02/06/群晖备份说明/","title":"群晖备份说明"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Python-进程误区 | wei</title>
+<title>群晖备份说明 | wei</title>
   
 
 
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%90%E8%BF%9B%E7%A8%8B%E4%B8%8D%E8%83%BD%E7%94%A8%E6%88%B7%E4%BA%A4%E4%BA%92%EF%BC%8C%E8%B7%9FAndroid%E4%B8%AD%E5%AD%90%E8%BF%9B%E7%A8%8B%E4%B8%8D%E8%83%BD%E8%BF%9B%E8%A1%8CUI%E6%93%8D%E4%BD%9C%E6%9C%89%E7%82%B9%E7%B1%BB%E4%BC%BC"><span class="nav-number">1.</span> <span class="nav-text">子进程不能用户交互，跟Android中子进程不能进行UI操作有点类似</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BE%A4%E6%99%96%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">群晖配置说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Alist%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E"><span class="nav-number">1.0.1.</span> <span class="nav-text">Alist配置说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E5%90%8C%E6%AD%A5%E6%9C%AC%E5%9C%B0"><span class="nav-number">1.0.2.</span> <span class="nav-text">阿里云盘同步本地</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HyperBackup%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E"><span class="nav-number">1.0.3.</span> <span class="nav-text">HyperBackup配置说明</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -180,7 +180,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/12/26/Python-%E8%BF%9B%E7%A8%8B%E8%AF%AF%E5%8C%BA/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/06/%E7%BE%A4%E6%99%96%E5%A4%87%E4%BB%BD%E8%AF%B4%E6%98%8E/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,12 +193,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Python-进程误区 | wei">
+      <meta itemprop="name" content="群晖备份说明 | wei">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Python-进程误区
+          群晖备份说明
         </h1>
 
         <div class="post-meta-container">
@@ -208,24 +208,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2018-12-25 17:57:02" itemprop="dateCreated datePublished" datetime="2018-12-25T17:57:02Z">2018-12-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-25 03:22:12" itemprop="dateModified" datetime="2023-12-25T03:22:12Z">2023-12-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
+      <time title="创建时间：2024-02-06 15:12:22 / 修改时间：08:14:11" itemprop="dateCreated datePublished" datetime="2024-02-06T15:12:22Z">2024-02-06</time>
     </span>
 
   
@@ -238,7 +223,68 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h4 id="子进程不能用户交互，跟Android中子进程不能进行UI操作有点类似"><a href="#子进程不能用户交互，跟Android中子进程不能进行UI操作有点类似" class="headerlink" title="子进程不能用户交互，跟Android中子进程不能进行UI操作有点类似"></a>子进程不能用户交互，跟Android中子进程不能进行UI操作有点类似</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    Process(target=func).start()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># Process Process-1:</span></span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File &quot;/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/multiprocessing/process.py&quot;, line 252, in _bootstrap</span></span><br><span class="line"><span class="comment">#     self.run()</span></span><br><span class="line"><span class="comment">#   File &quot;/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/multiprocessing/process.py&quot;, line 93, in run</span></span><br><span class="line"><span class="comment">#     self._target(*self._args, **self._kwargs)</span></span><br><span class="line"><span class="comment">#   File &quot;/Users/wei/Desktop/StormFeng.github.io/myblog/test.py&quot;, line 8, in func</span></span><br><span class="line"><span class="comment">#     print(input())</span></span><br><span class="line"><span class="comment"># EOFError: EOF when reading a line</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Process finished with exit code 0</span></span><br></pre></td></tr></table></figure>
+        <h1 id="群晖配置说明"><a href="#群晖配置说明" class="headerlink" title="群晖配置说明"></a>群晖配置说明</h1><h3 id="Alist配置说明"><a href="#Alist配置说明" class="headerlink" title="Alist配置说明"></a>Alist配置说明</h3><table>
+<thead>
+<tr>
+<th align="left">本地</th>
+<th align="left">远程</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">阿里云盘</td>
+<td align="left">&#x2F;</td>
+<td align="left">映射阿里云盘根文件夹</td>
+</tr>
+<tr>
+<td align="left">HyperBackup</td>
+<td align="left">&#x2F;HyperBackup</td>
+<td align="left">映射百度网盘HyperBackup文件夹</td>
+</tr>
+</tbody></table>
+<h3 id="阿里云盘同步本地"><a href="#阿里云盘同步本地" class="headerlink" title="阿里云盘同步本地"></a>阿里云盘同步本地</h3><table>
+<thead>
+<tr>
+<th align="left">本地</th>
+<th align="left">阿里云盘</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">homes</td>
+<td align="left">homes</td>
+<td align="left">双向(备份照片等个人资料)</td>
+</tr>
+<tr>
+<td align="left">music</td>
+<td align="left">music</td>
+<td align="left">双向</td>
+</tr>
+<tr>
+<td align="left">宝宝一家</td>
+<td align="left">宝宝一家</td>
+<td align="left">仅下载远程更改(隐藏共享)</td>
+</tr>
+<tr>
+<td align="left">同步盘</td>
+<td align="left">同步盘</td>
+<td align="left">双向</td>
+</tr>
+<tr>
+<td align="left">网盘</td>
+<td align="left">网盘</td>
+<td align="left">仅下载远程更改(隐藏共享)</td>
+</tr>
+</tbody></table>
+<p><strong>修改单向同步，应以<code>Alist</code>修改为准</strong></p>
+<h3 id="HyperBackup配置说明"><a href="#HyperBackup配置说明" class="headerlink" title="HyperBackup配置说明"></a>HyperBackup配置说明</h3><p><strong>暂时仅一台主机配置，避免冲突</strong>，完整备份以下文件夹到百度网盘：</p>
+<ul>
+<li>homes</li>
+<li>music</li>
+<li>同步盘</li>
+<li>宝宝一家</li>
+<li>网盘</li>
+</ul>
 
     </div>
 
@@ -248,21 +294,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag"># 进程</a>
+              <a href="/tags/%E7%BE%A4%E6%99%96/" rel="tag"># 群晖</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2018/12/26/Python-%E8%BF%9B%E7%A8%8B%E9%94%81/" rel="prev" title="Python-进程锁">
-                  <i class="fa fa-chevron-left"></i> Python-进程锁
+                <a href="/2024/01/25/Kotlin%E7%AC%94%E8%AE%B0/" rel="prev" title="Kotlin笔记">
+                  <i class="fa fa-chevron-left"></i> Kotlin笔记
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2018/12/26/Python-%E4%BF%A1%E5%8F%B7%E9%87%8F/" rel="next" title="Python-信号量">
-                  Python-信号量 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
