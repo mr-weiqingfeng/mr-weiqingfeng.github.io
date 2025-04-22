@@ -124,7 +124,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -164,6 +164,96 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/12/27/Python-%E8%BF%9B%E7%A8%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wei">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | wei">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/12/27/Python-%E8%BF%9B%E7%A8%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB/" class="post-title-link" itemprop="url">Python-进程之间的数据共享</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-12-27 14:45:27" itemprop="dateCreated datePublished" datetime="2018-12-27T14:45:27Z">2018-12-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-04-16 06:33:45" itemprop="dateModified" datetime="2025-04-16T06:33:45Z">2025-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="Manager的基本用法"><a href="#Manager的基本用法" class="headerlink" title="Manager的基本用法"></a>Manager的基本用法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process, Manager</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">arg</span>):</span><br><span class="line">    arg[<span class="string">&#x27;count&#x27;</span>] -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    m = Manager()</span><br><span class="line">    dic = m.<span class="built_in">dict</span>(&#123;<span class="string">&#x27;count&#x27;</span>: <span class="number">1</span>&#125;)</span><br><span class="line">    p = Process(target=func, args=(dic, ))</span><br><span class="line">    p.start()</span><br><span class="line">    p.join()</span><br><span class="line">    <span class="built_in">print</span>(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># &#123;&#x27;count&#x27;: 0&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Process finished with exit code 0</span></span><br></pre></td></tr></table></figure>
+<p>代码中初识化一个<code>Manager</code>对象，<code>Manager</code>对象可用于进程之间的数据共享，在主进程中创建了一个count的值为1，传入子进程中进行减一的操作，再在主进程中打印dic的值，发现dic中count的值已经变成了0，说明主进程和子进程共享了dic变量的值。<br><strong>注意，<code>Manager</code>对象不是进程安全的，如果多个进程同时操作一个<code>Manager</code>对象，有可能会出现数据竞争的现象：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process, Manager</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">arg</span>):</span><br><span class="line">    arg[<span class="string">&#x27;count&#x27;</span>] -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    m = Manager()</span><br><span class="line">    dic = m.<span class="built_in">dict</span>(&#123;<span class="string">&#x27;count&#x27;</span>: <span class="number">10</span>&#125;)</span><br><span class="line">    p_lst = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        p = Process(target=func, args=(dic, ))</span><br><span class="line">        p.start()</span><br><span class="line">        p_lst.append(p)</span><br><span class="line">    [p.join() <span class="keyword">for</span> p <span class="keyword">in</span> p_lst]</span><br><span class="line">    <span class="built_in">print</span>(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># &#123;&#x27;count&#x27;: 2&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Process finished with exit code 0</span></span><br></pre></td></tr></table></figure>
+<p>上面的例子中输出的结果可能是2，也可能是3…，按照我们正常的思维，输出0才是正确的结果，出现这个结果正是由于多个进程同时访问<code>Manager</code>对象，可能一个进程操作完之后数据还未写入，另一个进程进行了读取的操作，才导致的数据错误。<br>解决这个问题，可以用进程锁的方式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process, Manager, Lock</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">arg, lock</span>):</span><br><span class="line">    lock.acquire()</span><br><span class="line">    arg[<span class="string">&#x27;count&#x27;</span>] -= <span class="number">1</span></span><br><span class="line">    lock.release()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    m = Manager()</span><br><span class="line">    lock = Lock()</span><br><span class="line">    dic = m.<span class="built_in">dict</span>(&#123;<span class="string">&#x27;count&#x27;</span>: <span class="number">10</span>&#125;)</span><br><span class="line">    p_lst = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        p = Process(target=func, args=(dic, lock))</span><br><span class="line">        p.start()</span><br><span class="line">        p_lst.append(p)</span><br><span class="line">    [p.join() <span class="keyword">for</span> p <span class="keyword">in</span> p_lst]</span><br><span class="line">    <span class="built_in">print</span>(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># &#123;&#x27;count&#x27;: 0&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Process finished with exit code 0</span></span><br></pre></td></tr></table></figure>
+<p>这样，便可以避免进程之间的数据竞争问题。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
