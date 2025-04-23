@@ -201,9 +201,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-04-22 18:23:06 / 修改时间：10:23:06" itemprop="dateCreated datePublished" datetime="2025-04-22T18:23:06Z">2025-04-22</time>
+      <time title="创建时间：2025-04-22 18:23:06" itemprop="dateCreated datePublished" datetime="2025-04-22T18:23:06Z">2025-04-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-04-23 01:30:21" itemprop="dateModified" datetime="2025-04-23T01:30:21Z">2025-04-23</time>
     </span>
 
   
@@ -216,7 +222,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h4 id="docker配置cloudflare"><a href="#docker配置cloudflare" class="headerlink" title="docker配置cloudflare"></a>docker配置cloudflare</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name cloudflared --network bridge --dns=1.1.1.1 --dns=8.8.8.8 cloudflare/cloudflared:latest tunnel run --token xxx</span><br></pre></td></tr></table></figure>
+          <h4 id="docker配置cloudflare"><a href="#docker配置cloudflare" class="headerlink" title="docker配置cloudflare"></a>docker配置cloudflare</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">客户端设置科学上网</span></span><br><span class="line">docker run --name cloudflared --network bridge --dns=1.1.1.1 --dns=8.8.8.8 cloudflare/cloudflared:latest tunnel run --token xxx</span><br></pre></td></tr></table></figure>
 
       
     </div>
